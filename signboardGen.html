@@ -1,0 +1,105 @@
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <title>Roadside Sign Gen</title>
+    <meta name="author" content="lev">
+	<meta name="description" content="Wordle, except anti-car slogans.">
+	<meta name="keywords" content="wordle, anti-car, cars ruin cities, word game, game, puzzle">
+
+    <style>
+        @font-face { font-family: Signboard; src: url(signboard_font.ttf); }
+        
+        body { background-color: #121213; }
+        h1 {
+            text-align: center;
+            font-family: Signboard;
+            font-size: 5vw;
+            margin-top: 3%;
+            color: #FFFFFF;
+        }        
+        
+        /* General Signboard Div Styles */
+        .signboard {
+            background-image: url("signboard_upscaled.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 45vw;
+            height: 60vh;
+        }
+        
+        /* Text Input Styles */
+        input[type=text] {
+            background-color: transparent;
+            border: none;
+            font-family: Signboard;
+            color: #ECBC26;
+            text-shadow: 0px 0px 2vh #ff8c00;  
+            font-size: 8.9vw;
+            width: 100%;
+            position: absolute;
+            left: 0.9vh;
+        }
+        
+        
+        #lineOne { top: 1.6vh; }
+        #lineTwo { top: 21.2vh; }
+        #lineThree { bottom: -0.8vh; }
+        
+        /* Bottom Button Styles */
+        .button {
+            margin-top: 2vh;
+            padding: 1.5vh;
+            font-family: Signboard;
+            font-size: 5vh;
+            color: #FFFFFF;
+            background-color: black;
+            border-width: 0vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        #output {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            justify-content: center;
+        }
+        
+    </style>
+    </head>
+<body>
+    <h1>Roadside-Sign-Inator</h1>
+        <form id=textbox>
+            <div class=signboard id=signboard>
+                <input type="text" alt="Line One Input Box" id="lineOne" maxlength="8">
+                <input type="text" alt="Line Two Input Box" id="lineTwo" maxlength="8">
+                <input type="text" alt="Line Three Input Box" id="lineThree" maxlength="8">
+            </div>
+            <button type="button" alt="Screenshot Signboard" id="screenshot" class="button" onclick="takeShot()">Screenshot</button>
+        </form>
+    <div id="output"></div>
+    <script type="text/javascript">
+        function takeShot() {
+            let div =
+                document.getElementById('signboard');
+  
+            html2canvas(div,{backgroundColor:null}).then(
+                function (canvas) {
+                    document
+                    .getElementById('output')
+                    .appendChild(canvas);
+                })
+        }
+    </script>
+</body>
+</html>
+
