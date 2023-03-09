@@ -1,26 +1,29 @@
 <html>
  <head>
+    <title>Roadside Sign Generator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
-    <title>Roadside Sign Gen</title>
     <meta name="author" content="lev">
-	<meta name="description" content="Wordle, except anti-car slogans.">
-	<meta name="keywords" content="wordle, anti-car, cars ruin cities, word game, game, puzzle">
-
+    <!-- Import HTML2Canvas (Screenshot Plugin) -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0/dist/html2canvas.js"></script>
+     
     <style>
+        /* Font Import */
         @font-face { font-family: Signboard; src: url(signboard_font.ttf); }
-        
+        /* Background Color */ 
         body { background-color: #121213; }
+        
+        /* Title Text Styles */
         h1 {
             text-align: center;
             font-family: Signboard;
-            font-size: 5vw;
-            margin-top: 3%;
+            font-size: 8vw;
+            margin-top: 3vh;
+            margin-bottom: 2vh;
             color: #FFFFFF;
         }        
         
-        /* General Signboard Div Styles */
+        /* Div Styles */
         .signboard {
             background-image: url("signboard_upscaled.png");
             background-position: center;
@@ -30,8 +33,8 @@
             margin-left: auto;
             margin-right: auto;
             text-align: center;
-            width: 45vw;
-            height: 60vh;
+            width: 90vw;
+            height: 57.14vw;
         }
         
         /* Text Input Styles */
@@ -41,43 +44,47 @@
             font-family: Signboard;
             color: #ECBC26;
             text-shadow: 0px 0px 2vh #ff8c00;  
-            font-size: 8.9vw;
+            font-size: 17.8vw;
             width: 100%;
             position: absolute;
-            left: 0.9vh;
+            left: 1%;
         }
         
+        /* Text Input Vertical Positioning */ 
+        #lineOne { top: 4.5%; }
+        #lineTwo { top: 36.3%; }
+        #lineThree { bottom: 0.2%; }
         
-        #lineOne { top: 1.6vh; }
-        #lineTwo { top: 21.2vh; }
-        #lineThree { bottom: -0.8vh; }
-        
-        /* Bottom Button Styles */
+        /* Screenshot Button Styles */
         .button {
-            margin-top: 2vh;
-            padding: 1.5vh;
-            font-family: Signboard;
-            font-size: 5vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1vh;
+            padding-bottom: 0.5vh;
+            margin-top: 3vh;
+            background-color: #262627;
+            border-radius: 0.7vw;
+            border-color: #262627;
             color: #FFFFFF;
-            background-color: black;
-            border-width: 0vh;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            font-family: Signboard;
+            font-size: 8vh;
         }
         
-        #output {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 100%;
-            justify-content: center;
+        /* Desktop-Specific Styles (Mobile First) */
+        @media (min-width: 768px) {
+            h1 { font-size: 4vw; }
+            .signboard { width: 45vw; height: 27.067vw; }
+            
+            input[type=text] { font-size: 8.9vw; left: 0.8%; }
+            #lineOne { top: 2%; }
+            #lineTwo { top: 35%; }
+            #lineThree { bottom: -2.5%; }
         }
-        
     </style>
     </head>
 <body>
-    <h1>Roadside-Sign-Inator</h1>
+    <h1>Electronic Roadside<br>Sign Generator</h1>
         <form id=textbox>
             <div class=signboard id=signboard>
                 <input type="text" alt="Line One Input Box" id="lineOne" maxlength="8">
@@ -86,9 +93,10 @@
             </div>
             <button type="button" alt="Screenshot Signboard" id="screenshot" class="button" onclick="takeShot()">Screenshot</button>
         </form>
-    <div id="output"></div>
+    <div id="output" style="text-align: center;"></div>
     <script type="text/javascript">
         function takeShot() {
+            document.getElementById('output').innerHTML = "";
             let div =
                 document.getElementById('signboard');
   
