@@ -1,5 +1,5 @@
         /* Font Import */
-        @font-face { font-family: Signboard; src: url(signboard_font.ttf); }
+        @font-face { font-family: Signboard; src: url(assets/signboard_font.ttf); }
         /* Background Color */ 
         body { background-color: #121213; }
         
@@ -16,7 +16,7 @@
         
         /* Div Styles */
         .signboard {
-            background-image: url("signboard_upscaled.png");
+            background-image: url("assets/signboard_upscaled.png");
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
