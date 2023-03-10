@@ -1,0 +1,48 @@
+<html>
+ <head>
+    <title>Roadside Sign Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="lev">
+    <!-- Import HTML2Canvas (Screenshot Plugin) -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0/dist/html2canvas.js"></script>
+    <script src="copyOverScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="signboardStyles.css">
+    </head>
+<body onload="sync()">
+    <h1>Roadside<br>Signboard</h1>
+        <form id=textbox>
+            <div class=signboard id=signboard>
+                <label class="t" alt="Line One" id="line1Copy"></label>
+                <label class="t" alt="Line Two" id="line2Copy"></label>
+                <label class="t" alt="Line Three" id="line3Copy"></label>
+                <input class="t" type="text" alt="Line One Input Box" id="line1" maxlength="8" onkeyup="sync()" data-html2canvas-ignore="true">
+                <input class="t" type="text" alt="Line Two Input Box" id="line2" maxlength="8" onkeyup="sync()" data-html2canvas-ignore="true">
+                <input class="t" type="text" alt="Line Three Input Box" id="line3" maxlength="8" onkeyup="sync()" data-html2canvas-ignore="true">
+            </div>
+            <button type="button" alt="Screenshot Signboard" id="screenshot" class="button" onclick="takeShot()">Screenshot</button>
+        </form>
+    <div id="output" style="text-align: center;"></div>
+    <script>
+        function takeShot() {
+        document.getElementById('line1Copy').style.visibility = "visible";
+        document.getElementById('line2Copy').style.visibility = "visible";
+        document.getElementById('line3Copy').style.visibility = "visible";
+        document.getElementById('output').innerHTML = "";
+        let div =
+            document.getElementById('signboard');
+
+        html2canvas(div,{backgroundColor:null}).then(
+            function (canvas) {
+                document
+                .getElementById('output')
+                .appendChild(canvas);
+            })
+        document.getElementById('line1Copy').style.visibility = "hidden";
+        document.getElementById('line2Copy').style.visibility = "hidden";
+        document.getElementById('line3Copy').style.visibility = "hidden";
+        }
+    </script>
+</body>
+</html>
+
