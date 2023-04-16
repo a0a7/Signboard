@@ -1,5 +1,5 @@
         /* Font Import */
-        @font-face { font-family: Signboard; src: url(assets/signboard_font.ttf); }
+        @font-face { font-family: Signboard; src: url(assets/signboard_font.TTF); }
         /* Background Color */ 
         body { background-color: #121213; }
         
