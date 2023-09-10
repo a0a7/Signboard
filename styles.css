@@ -1,9 +1,5 @@
-        /* Font Import */
         @font-face { font-family: Signboard; src: url(assets/signboard_font.TTF); }
-        /* Background Color */ 
         body { background-color: #121213; }
-        
-        /* Title Text Styles */
         h1 {
             text-align: center;
             font-family: Signboard;
@@ -13,8 +9,6 @@
             color: #FFFFFF;
             font-weight: bold;
         }        
-        
-        /* Div Styles */
         .signboard {
             background-image: url("assets/signboard_upscaled.png");
             background-position: center;
@@ -27,8 +21,6 @@
             width: 90vw;
             height: 57.14vw;
         }
-        
-        /* Text Input Styles */
         .t {
             background-color: transparent;
             border: none;
@@ -41,18 +33,12 @@
             text-shadow: 0px 0px 2vh #ff8c00;
             white-space: pre;
         }
-        
-        /* Text Input Vertical Positioning */ 
         #line1 { top: 4.5%; }
         #line2 { top: 36%; }
         #line3 { bottom: 0.2%; }
-        
-        /* Text Copy Vertical Positioning */
         #line1Copy { left: 1.1%; top: 4.5%; visibility: hidden; }
         #line2Copy { left: 1.1%; top: 36%; visibility: hidden; }
         #line3Copy { left: 1.1%; bottom: 1.1%; visibility: hidden; }
-        
-        /* Screenshot Button Styles */
         .button {
             display: block;
             margin-left: auto;
@@ -67,18 +53,13 @@
             font-family: Signboard;
             font-size: 6vh;
         }
-        
-        /* Desktop-Specific Styles (Mobile First) */
         @media (min-width: 768px) {
             h1 { font-size: 5vw; }
             .signboard { width: 45vw; height: 27.067vw; }
-            
             .t { font-size: 8.9vw; left: 1%; }
             #line1 { top: 2%; }
             #line2 { top: 35.5%; }
             #line3 { bottom: -2.5%; }
-            
-            /* Text Copy Vertical Positioning */
             #line1Copy { top: 2% }
             #line2Copy { top: 35.5% }
             #line3Copy { bottom: -2% }
