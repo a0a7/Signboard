@@ -1,3 +1,4 @@
+// Copy over text from input to background element
 function sync() {
     console.log('Attempting Sync')
     var line1 = document.getElementById('line1'),
@@ -9,4 +10,4 @@ function sync() {
     line1Copy.innerHTML = line1.value;
     line2Copy.innerHTML = line2.value;
     line3Copy.innerHTML = line3.value;
-}       
+}
